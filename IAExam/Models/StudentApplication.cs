@@ -14,9 +14,13 @@ namespace IAExam.Models
 
     public class StudentApplicationResponse
     {
+        [Required]
         public int Id { get; set; }
+        [Required]
         public StudentResponse Student { get; set; }
+        [Required]
         public string ApplicationStatus { get; set; }
+        [Required]
         public string Status { get; set; }
     }
 }
