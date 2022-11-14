@@ -1,6 +1,5 @@
 ﻿using IAExam.Models;
 using System.Data.SqlClient;
-using System.Runtime.Intrinsics.Arm;
 
 namespace IAExam.DbLayer
 {
