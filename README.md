@@ -1,9 +1,10 @@
 # Compilación
 
 1. Los prerequisitos para probar la aplicación son:
-   1.1 Tener SQL Server
-   1.2 Tener Visual Studio 2022
-   1.3 Tener el sdk de .Net Core 6.0
+
+   - Tener SQL Server
+   - Tener Visual Studio 2022
+   - Tener el sdk de .Net Core 6.0
 
 2. Para realizar la compilación y test de este proyecto de una forma correcta, se debe crear una nueva base de datos en SQL Server utilizando el Dump que se encuentra en la carpeta Dump&Postman.
 
