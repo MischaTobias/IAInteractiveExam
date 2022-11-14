@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [IAExam]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Database [IAExam]    Script Date: 11/14/2022 9:02:19 AM ******/
 CREATE DATABASE [IAExam]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [IAExam] SET QUERY_STORE = OFF
 GO
 USE [IAExam]
 GO
-/****** Object:  Table [dbo].[ApplicationStatus]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Table [dbo].[ApplicationStatus]    Script Date: 11/14/2022 9:02:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -96,7 +96,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Grimoires]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Table [dbo].[Grimoires]    Script Date: 11/14/2022 9:02:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +112,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MagicAffinities]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Table [dbo].[MagicAffinities]    Script Date: 11/14/2022 9:02:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -127,7 +127,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Status]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Table [dbo].[Status]    Script Date: 11/14/2022 9:02:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +141,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StudentApplication]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Table [dbo].[StudentApplication]    Script Date: 11/14/2022 9:02:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +157,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StudentGrimoire]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Table [dbo].[StudentGrimoire]    Script Date: 11/14/2022 9:02:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -173,7 +173,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Students]    Script Date: 11/13/2022 11:17:52 PM ******/
+/****** Object:  Table [dbo].[Students]    Script Date: 11/14/2022 9:02:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -240,6 +240,68 @@ INSERT [dbo].[Status] ([ID], [Name]) VALUES (2, N'Inactivo')
 GO
 SET IDENTITY_INSERT [dbo].[Status] OFF
 GO
+SET IDENTITY_INSERT [dbo].[StudentApplication] ON 
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (1, 1, 1, 1)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (2, 2, 2, 2)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (3, 3, 2, 2)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (4, 4, 2, 2)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (5, 3, 1, 1)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (6, 6, 2, 1)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (7, 10, 1, 1)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (8, 11, 1, 1)
+GO
+INSERT [dbo].[StudentApplication] ([ID], [StudentID], [ApplicationStatus], [Status]) VALUES (9, 3, 2, 1)
+GO
+SET IDENTITY_INSERT [dbo].[StudentApplication] OFF
+GO
+SET IDENTITY_INSERT [dbo].[StudentGrimoire] ON 
+GO
+INSERT [dbo].[StudentGrimoire] ([ID], [StudentID], [GrimoireID], [Status]) VALUES (1, 2, 5, 1)
+GO
+INSERT [dbo].[StudentGrimoire] ([ID], [StudentID], [GrimoireID], [Status]) VALUES (2, 4, 3, 1)
+GO
+INSERT [dbo].[StudentGrimoire] ([ID], [StudentID], [GrimoireID], [Status]) VALUES (3, 6, 1, 1)
+GO
+INSERT [dbo].[StudentGrimoire] ([ID], [StudentID], [GrimoireID], [Status]) VALUES (4, 3, 1, 1)
+GO
+SET IDENTITY_INSERT [dbo].[StudentGrimoire] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Students] ON 
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (1, N'Estuardo', N'Villeda', N'abcde12345', 21, 1, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (2, N'Alejandra', N'Recinos', N'abcde12345', 22, 2, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (3, N'Mischa', N'Tobias', N'abcde12345', 21, 3, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (4, N'Mischa', N'Montenegro', N'abcde12345', 21, 3, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (5, N'Ale', N'Montenegro', N'abcde12345', 21, 3, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (6, N'Ale', N'Recions', N'abcde12345', 21, 4, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (7, N'Mish', N'Recinos', N'abcde12345', 21, 4, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (8, N'Mish', N'Tobi', N'abcde12345', 21, 5, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (9, N'Mish', N'Tobi', N'abcde12345', 21, 5, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (10, N'Mish', N'Tobi', N'abcde12345', 21, 5, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (11, N'Mish', N'Mont', N'abcde12345', 21, 5, 1)
+GO
+INSERT [dbo].[Students] ([StudentID], [Name], [LastName], [ID], [Age], [MagicAffinity], [Status]) VALUES (12, N'Misch', N'Mont', N'a1b2c3d4e5', 21, 3, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Students] OFF
+GO
 ALTER TABLE [dbo].[Grimoires]  WITH CHECK ADD FOREIGN KEY([Status])
 REFERENCES [dbo].[Status] ([ID])
 GO
@@ -270,7 +332,7 @@ GO
 ALTER TABLE [dbo].[Students]  WITH CHECK ADD FOREIGN KEY([Status])
 REFERENCES [dbo].[Status] ([ID])
 GO
-/****** Object:  StoredProcedure [dbo].[AssignGrimoire]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[AssignGrimoire]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -287,12 +349,31 @@ begin
 	from StudentGrimoire where ID = @@IDENTITY
 end
 GO
-/****** Object:  StoredProcedure [dbo].[CreateApplication]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[CreateApplication]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 create   procedure [dbo].[CreateApplication]
+@StudentID int
+as 
+begin
+	insert into StudentApplication (StudentID, ApplicationStatus, Status)
+	values (@studentID, 1, 1)
+
+	select @@IDENTITY as 'ApplicationID', ApplicationStatus as 'ApplicationStatus', 
+		b.Name as 'Status' from StudentApplication a
+	inner join Status b on a.Status = b.ID
+	where a.ID = @@IDENTITY
+end
+
+GO
+/****** Object:  StoredProcedure [dbo].[CreateStudent]    Script Date: 11/14/2022 9:02:20 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   procedure [dbo].[CreateStudent]
 @Name nvarchar(20),
 @LastName nvarchar(20),
 @ID nvarchar(10),
@@ -303,19 +384,11 @@ begin
 	insert into Students (Name, LastName, ID, Age, MagicAffinity, Status)
 	values (@Name, @LastName, @ID, @Age, @MagicAffinity, 1)
 
-	declare @studentID int;
-
-	select @studentID = @@IDENTITY;
-
-	insert into StudentApplication (StudentID, ApplicationStatus, Status)
-	values (@studentID, 1, 1)
-
-	select @@IDENTITY as 'ApplicationID', @studentID as 'StudentID', ApplicationStatus as 'ApplicationStatus' from StudentApplication
-	where ID = @@IDENTITY
+	select @@IDENTITY as 'StudentID', b.Name as 'MagicAffinity' from Students a
+	inner join MagicAffinities b on a.MagicAffinity = b.ID
 end
-
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteApplication]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteApplication]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -334,7 +407,7 @@ begin
 end
 
 GO
-/****** Object:  StoredProcedure [dbo].[GetApplications]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetApplications]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -344,15 +417,16 @@ as
 begin
 	select a.ID as 'ApplicationID', a.StudentID as 'StudentDbID', d.Name as 'ApplicationStatus',
 		b.Name as 'StudentName', b.LastName as 'StudentLastName', b.ID as 'StudentID', b.Age as 'StudentAge',
-		c.Name as 'StudentMagicAffinity'
+		c.Name as 'StudentMagicAffinity', e.Name as 'Status'
 	from StudentApplication a
 	inner join Students b on a.StudentID = b.StudentID
 	inner join MagicAffinities c on b.MagicAffinity = c.ID
 	inner join ApplicationStatus d on a.ApplicationStatus = d.ID
+	inner join Status e on a.Status = e.ID
 	where a.Status = 1
 end
 GO
-/****** Object:  StoredProcedure [dbo].[GetGrimoireAssignations]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetGrimoireAssignations]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -371,7 +445,7 @@ begin
 	where a.Status = 1
 end
 GO
-/****** Object:  StoredProcedure [dbo].[GetGrimoires]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetGrimoires]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -384,7 +458,7 @@ begin
 	where Status = 1
 end
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateApplication]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateApplication]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -399,12 +473,18 @@ begin
 	set StudentID = @StudentID, ApplicationStatus = @ApplicationStatus
 	where ID = @ID
 
-	select a.ID as 'ApplicationID', a.StudentID as 'StudentID', b.Name as 'ApplicationStatus' from StudentApplication a
-	inner join ApplicationStatus b on a.ApplicationStatus = b.ID
+	select a.ID as 'ApplicationID', c.Name as 'ApplicationStatus', b.Name as 'Status',
+			d.Name as 'StudentName', d.LastName as 'StudentLastName', d.ID as 'StudentID', d.Age as 'StudentAge',
+			e.Name as 'StudentMagicAffinity'
+	from StudentApplication a
+	inner join Status b on a.Status = b.ID
+	inner join ApplicationStatus c on a.ApplicationStatus = c.ID
+	inner join Students d on a.StudentID = d.StudentID
+	inner join MagicAffinities e on d.MagicAffinity = e.ID
 	where a.ID = @ID;
 end
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateApplicationStatus]    Script Date: 11/13/2022 11:17:53 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateApplicationStatus]    Script Date: 11/14/2022 9:02:20 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

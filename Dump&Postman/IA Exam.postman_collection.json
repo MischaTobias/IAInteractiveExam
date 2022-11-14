@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Ale\",\r\n  \"lastName\": \"Recions\",\r\n  \"id\": \"abcde12345\",\r\n  \"age\": 21,\r\n  \"magicAffinity\": 4\r\n}",
+					"raw": "{\r\n  \"name\": \"Misch\",\r\n  \"lastName\": \"Mont\",\r\n  \"id\": \"a1b2c3d4e5\",\r\n  \"age\": 21,\r\n  \"magicAffinity\": 3\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 5,\r\n    \"student\": {\r\n        \"studentId\": 3,\r\n        \"name\": \"Alejandra\",\r\n        \"lastname\": \"Recinos\",\r\n        \"id\": \"abcde12345\"\r\n    },\r\n    \"applicationStatus\": \"En Proceso\"\r\n}",
+					"raw": "{\r\n    \"id\": 9,\r\n    \"student\": {\r\n        \"studentId\": 3,\r\n        \"name\": \"Misch\",\r\n        \"lastName\": \"Mont\",\r\n        \"id\": \"a1b2c3d4e5\",\r\n        \"age\": 21,\r\n        \"magicAffinity\": \"Oscuridad\"\r\n    },\r\n    \"applicationStatus\": \"1\",\r\n    \"status\": \"Activo\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,7 +70,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7041/api/StudentApplication/6/2",
+					"raw": "https://localhost:7041/api/StudentApplication/9/2",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -79,7 +79,7 @@
 					"path": [
 						"api",
 						"StudentApplication",
-						"6",
+						"9",
 						"2"
 					]
 				}
@@ -134,7 +134,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:7041/api/StudentApplication/2",
+					"raw": "https://localhost:7041/api/StudentApplication/4",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -143,7 +143,7 @@
 					"path": [
 						"api",
 						"StudentApplication",
-						"2"
+						"4"
 					]
 				}
 			},

@@ -8,8 +8,10 @@ namespace IAExam.Controllers
     [Route("api/[controller]")]
     public class StudentApplicationController : ControllerBase
     {
-        private StudentApplicationDB _studentApplicationDB;
-        private StudentGrimoireDB _studentGrimoireDB;
+        private readonly StudentApplicationDB _studentApplicationDB;
+        private readonly StudentGrimoireDB _studentGrimoireDB;
+        private readonly StudentDB _studentDB;
+        private readonly GrimoireDB _grimoireDB;
 
         /// <summary>
         /// Receives the configuration in order to access db connection string
@@ -19,6 +21,8 @@ namespace IAExam.Controllers
         {
             _studentApplicationDB = new StudentApplicationDB(configuration.GetConnectionString("examIA"));
             _studentGrimoireDB = new StudentGrimoireDB(configuration.GetConnectionString("examIA"));
+            _studentDB = new StudentDB(configuration.GetConnectionString("examIA"));
+            _grimoireDB = new GrimoireDB(configuration.GetConnectionString("examIA"));
         }
 
         /// <summary>
@@ -63,21 +67,16 @@ namespace IAExam.Controllers
         [HttpPost]
         public IActionResult CreateApplication(Student student)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest();
-                }
-
-                var application = _studentApplicationDB.SaveStudentApplication(student);
-
-                return CreatedAtAction(nameof(Get), new { id = application.Id }, application);
+                return BadRequest();
             }
-            catch
-            {
-                return StatusCode(500);
-            }
+
+            var newStudent = _studentDB.SaveStudent(student);
+            var newApplication = _studentApplicationDB.SaveStudentApplication(newStudent.StudentId);
+            newApplication.Student = newStudent;
+
+            return CreatedAtAction(nameof(Get), new { id = newApplication.Id }, newApplication);
         }
 
         /// <summary>
@@ -86,23 +85,16 @@ namespace IAExam.Controllers
         /// <param name="application"></param>
         /// <returns>Modified student application</returns>
         [HttpPut]
-        public IActionResult UpdateApplication(StudentApplication application)
+        public IActionResult UpdateApplication(StudentApplicationResponse application)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest();
-                }
-
-                var newApplication = _studentApplicationDB.UpdateStudentAplication(application);
-
-                return Ok(new { id = newApplication.Id, student = new { id = newApplication.Student.StudentId }, applicationStatus = newApplication.ApplicationStatus });
+                return BadRequest();
             }
-            catch
-            {
-                return StatusCode(500);
-            }
+
+            var newApplication = _studentApplicationDB.UpdateStudentAplication(application);
+
+            return Ok(newApplication);
         }
 
         /// <summary>
@@ -123,7 +115,7 @@ namespace IAExam.Controllers
                     return Ok(new { id = newApplication.Id, status = newApplication.ApplicationStatus });
                 }
 
-                var grimoires = _studentGrimoireDB.GetGrimoires().ToList();
+                var grimoires = _grimoireDB.GetGrimoires().ToList();
                 var randomIndex = new Random().Next(grimoires.Count);
 
                 var grimoireAssignation = _studentGrimoireDB.AssignGrimoire(newApplication.Student.StudentId, grimoires[randomIndex].Id);
@@ -148,7 +140,7 @@ namespace IAExam.Controllers
             {
                 var newApplication = _studentApplicationDB.DeleteStudentApplication(id);
 
-                return Ok(newApplication);
+                return Ok(new { id = newApplication.Id, status = newApplication.Status });
             }
             catch
             {

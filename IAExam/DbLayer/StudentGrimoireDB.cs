@@ -12,32 +12,6 @@ namespace IAExam.DbLayer
             this._connectionString = connectionString;
         }
 
-        public IEnumerable<Grimoire> GetGrimoires()
-        {
-            using SqlConnection con = new(_connectionString);
-            con.Open();
-            SqlCommand cmd = new()
-            {
-                CommandType = System.Data.CommandType.StoredProcedure,
-                CommandText = "GetGrimoires",
-                Connection = con
-            };
-
-
-            using SqlDataReader rdr = cmd.ExecuteReader();
-            var studentApplicationList = new List<Grimoire>();
-            while (rdr.Read())
-            {
-                studentApplicationList.Add(new Grimoire
-                {
-                    Id = Convert.ToInt32(rdr["GrimoireID"]),
-                    Name = rdr["GrimoireName"].ToString() ?? string.Empty,
-                    CloverLeaves = Convert.ToInt32(rdr["GrimoireCloverLeaves"]),
-                });
-            }
-            return studentApplicationList;
-        }
-
         public StudentGrimoire AssignGrimoire(int studentId, int grimoireId)
         {
             using SqlConnection con = new(_connectionString);
