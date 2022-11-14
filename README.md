@@ -1,4 +1,4 @@
-#Compilación
+# Compilación
 
 1. Para realizar la compilación y test de este proyecto de una forma correcta, se debe crear una nueva base de datos en SQL Server utilizando el Dump que se encuentra en la carpeta Dump&Postman.
 
